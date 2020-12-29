@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>07_폰트 속성</title>
+<style>
+body{		/* '/' 이후 normal 혹은 % -> line-height(줄간격)*/
+	font: 14px / normal "돋움", Dotum, sans-serif; 
+	color: #999;
+}
+</style>
+
+</head>
+<body>
+
+<h1>폰트 속성</h1>
+
+<h2>종류</h2>
+font-family		:  서체, 서체, ("한글 서체"), 한글서체 영문명, 기본서체제공 <br />
+font-size       :  글자크기<br />
+font-weight		:  두께 normal(보통) bold(두껍게) - (**strong, b, h1~h6 기본으로 두꺼운 서체 초기화시 normal**)<br />
+font-style		:  기울기 normal(기울기없음) italic(기울어짐)  (**em, i, address 기본으로 기울어진 서체 초기화시 normal**)<br />
+color			:  글자색<br />
+line-height		:  줄간격 normal %<br />
+letter-spacing	: 자간<br />
+word-spacing	: 단어 간격<br />
+text-align		: 글자의 정렬 left(왼쪽정렬) center(가운데정렬) right(오른쪽정렬) justify(양쪽정렬)<br />
+text-decoration : 밑줄 none(밑줄없음) underline(밑줄)  (**a 기본으로 밑줄쳐진 서체 초기화시 none**)<br /><br />
+
+<h2>font속성에 한번에 값 입력할 경우</h2>
+font: style weight size / lined-height family(서체1), family(서체2), family(서체3);
+color: 글자색;
+
+</body>
+</html>

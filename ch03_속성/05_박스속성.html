@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>05_박스속성</title>
+</head>
+<body>
+
+<h1>박스속성</h1>
+
+<h2>종류</h2>
+width    :  폭(너비)  <br />
+height   :  높이 <br />
+padding  :  안쪽 여백 <br />
+border   :  테두리 <br />
+margin   :  주변 여백 <br />
+
+<h2>width, height 속성</h2>
+입력 : 크기 단위 (px % em vw vh) <br />
+
+<h2>padding 속성</h2> 
+padding-top  <br />
+padding-left  <br />
+padding-right  <br />
+padding-bottom  <br />
+padding  <br /><br />
+
+ex) <br />
+padding: 10px;             ->  상 10px  우 10px  하 10px  좌 10px   (같은값이 사방으로 적용)<br />
+padding: 0 10px;           ->  상 0px   우 10px  하  0px  좌 10px   (상하0px, 좌우10px)<br />
+padding: 0 10px 20px;      ->  상 0px   우 10px  하 20px  좌 10px   (상0px, 좌우10px, 하20px)<br />
+padding: 0 10px 20px 30px; ->  상 0px   우 10px  하 20px  좌 30px   (시계방향)<br />
+
+<h2>border 속성 : 3 속성이 모두 입력되어야 정확히 출력됨</h2>
+border-width  :  두께(크기 단위 입력)<br />
+border-color  :  색상(색상 단위 입력)<br />
+border-style  :  테두리 스타일<br /><br />
+
+주로 한 번에 입력<br />
+ex) border: width style color; (2px 실선 빨강: 2px solid #f00;) <br /><br />
+
+방향별 border 설정시 border-top, border-right, border-bottom, border-left 시계방향 <br /><br />
+
+<h2>border-style</h2>
+none    :  없음<br />
+solid   :  실선<br />
+dashed  :  대시선<br />
+dotted  :  점선<br />
+double  :  이중선<br />
+outset  :  양각선<br />
+inset   :  음각선<br />
+ridge   :  테두리만 양각선<br />
+groove  :  테두리만 음각선<br />
+
+ 
+<h2>border-radius</h2>
+박스모델 모서리 부분을 둥글게 만들 때.<br /><br />
+
+border-radius : 좌상 우상 우하 좌하; (왼쪽 상단 기준 시계방향) <br />
+동일 값 입력할때는 값 하나만 입력하면 됨.
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />   <!-- 반응형웹의 기기적용 위한 필수 메타태그 -->
+
+<title>02_반응형웹</title>
+<link rel="stylesheet" href="CSS/master.css" />  <!--  master.css 가져오기  -->
+
+
+
+<!----------- 010-default.html --------------->
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="CSS/swiper.css">
+
+  <!-- Demo styles -->
+  <style>
+    /*		우리가 이미 정의한것은 지워준다.
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+
+	*/
+
+	.swiper-container{		/*css에 width 적용된것 덮어씌우기*/
+		width: 100%;
+	}
+	@media screen and ( max_width: 1366px ){
+	.swiper-container{
+		margin-top: 52px;		/* mobile 환경에서 swiper가 헤더 가리는것 margin-top해주기 */
+	}
+	}
+
+    .swiper-slide {
+      width: 100%;
+      /*height: 100%;	 height수정->height대신 padding-top사용 */
+	  padding-top: 700px;
+    }
+
+	/***** 스크린 크기에 따라 .swiper-container 크기조정 *****/
+	@media screen and ( max-width: 1366px ) and ( min-width: 768px ){
+	.swiper-slide{
+		padding-top: 100%;		/* mobile에서 이미지 잘리지 않도록 */
+	}
+	}
+	@media screen and ( max-width: 767px ){
+	.swiper-slide{
+		padding-top: 133.33%;		/* mobile에서 이미지 잘리지 않도록 */
+	}
+	}
+
+
+
+    .swiper-slide {
+	/* 글자 지워주기
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+	*/
+	  text-indent: -6000px; 
+	  overflow: hidden;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+	
+	/***** 스크린 크기에 따라 배경이미지 크기 조정 *****/
+	@media screen and ( min-width: 1367px ){
+	/* 슬라이드에 image추가하기 */
+	.swiper-slide:nth-of-type(1){
+		background: url(http://www.placehold.it/2000x700/cccccc/ffffff) center;
+	}
+	.swiper-slide:nth-of-type(2){
+		background: url(http://www.placehold.it/2000x700/ffcccc/ffffff) center;
+	}
+	.swiper-slide:nth-of-type(3){
+		background: url(http://www.placehold.it/2000x700/ffff00/ffffff) center;
+	}
+	.swiper-slide:nth-of-type(4){
+		background: url(http://www.placehold.it/2000x700/999999/ffffff) center;
+	}
+	}
+
+
+	@media screen and ( max-width: 1366px ) and (  min-width: 768px ){
+	.swiper-slide:nth-of-type(1){
+		background: url(http://www.placehold.it/600x800/cccccc/ffffff) 0 0 / 100% auto;		/* 위치x 위치y / 폭 너비 */
+	}
+	.swiper-slide:nth-of-type(2){
+		background: url(http://www.placehold.it/600x800/ffcccc/ffffff) 0 0 / 100% auto;
+	}
+	.swiper-slide:nth-of-type(3){
+		background: url(http://www.placehold.it/600x800/ffff00/ffffff) 0 0 / 100% auto;
+	}
+	.swiper-slide:nth-of-type(4){
+		background: url(http://www.placehold.it/600x800/999999/ffffff) 0 0 / 100% auto;
+	}
+	}
+
+
+	@media screen and ( max-width: 767px ){
+	.swiper-slide:nth-of-type(1){
+		background: url(http://www.placehold.it/600x800/cccccc/ffffff) 0 0 / 100% auto;		/* 위치x 위치y / 폭 너비 */
+	}
+	.swiper-slide:nth-of-type(2){
+		background: url(http://www.placehold.it/600x800/ffcccc/ffffff) 0 0 / 100% auto;
+	}
+	.swiper-slide:nth-of-type(3){
+		background: url(http://www.placehold.it/600x800/ffff00/ffffff) 0 0 / 100% auto;
+	}
+	.swiper-slide:nth-of-type(4){
+		background: url(http://www.placehold.it/600x800/999999/ffffff) 0 0 / 100% auto;
+	}
+	}
+  </style>
+
+
+
+
+<script src="js/jquery-3.5.1.min.js"></script>   <!-- jQuery 가져오기 -->
+<script src="js/menu_script.js"></script>   <!-- jQuery 가져오기 - 모바일 세부메뉴 액션 -->
+
+</head>
+<body>
+
+<input id="toggle_menu" type="checkbox" />
+
+<div id="wrap">
+	<header id="main_header">
+		<!-- 로고 -->
+		<h1 class="logo"><a href="#">LOGO</a></h1>
+		
+
+		<!-- 메뉴 햄버거 버튼 -->
+		<label class="toggle_menu" for="toggle_menu"></label>		<!-- label for와 input id 맞추기. 라벨 클릭시 인풋반응 -->
+		
+
+		<!-- 검색 버튼 및 검색form -->
+		<input id="toggle_search" type="checkbox" />
+		<label class="toggle_search" for="toggle_search">search</label>		<!-- label for와 input id 맞추기. 라벨 클릭시 인풋반응 -->
+
+		<div id="search_wrap">
+			<form>  <!-- 개발적 부분이 필요한 경우 form으로 묶는다. 결과값 전송 필요한 경우. form으로 묶거나 묶지 않은경우 모두 무너지지 않게 css작성해야한다 추후 form빼도 문제안되도록 -->
+				<fieldset>
+					<legend>검색</legend>
+					<input id="search_txt" type="text" placeholder="검색어 입력" />
+					<input id="search_btn" type="image" src="http://placehold.it/35x35" alt="검색하기" />
+				</fieldset>
+			</form>
+		</div>
+
+
+		<!-- 상단메뉴 -->
+		<nav id="top_nav">
+			<ul>
+				<li><a href="#">ENGLISH</a></li>
+				<li><a href="#">LOGIN</a></li>
+			</ul>
+		</nav>
+	</header>
+
+
+	<nav id="main_nav_wrap">
+		
+		<!-- 상단메뉴 : mobile용 -->
+		<ul id="top_nav_m">					<!-- shift+tap : tap없애기 -->
+			<li><a href="#">ENGLISH</a></li>
+			<li><a href="#">LOGIN</a></li>
+		</ul>
+		
+		<!-- 메인메뉴 1~5 -->
+		<ul id="main_nav">
+			<li>
+				<h3>메뉴1</h3>					<!--link 걸리지 않은 mobile 터치용-->
+				<a href="#">메뉴1</a>			<!--rollover 가능한 PC용-->
+				<!-- 세부메뉴 -->
+				<ul class="sub_nav">
+					<li><a href="#">세부메뉴 1-1</a></li>
+					<li><a href="#">세부메뉴 1-2</a></li>
+					<li><a href="#">세부메뉴 1-3</a></li>
+				</ul>
+			</li>
+
+			<li>
+				<h3>메뉴2</h3>					<!--link 걸리지 않은 mobile 터치용-->
+				<a href="#">메뉴2</a>			<!--rollover 가능한 PC용-->
+				<!-- 세부메뉴 -->
+				<ul class="sub_nav">
+					<li><a href="#">세부메뉴 2-1</a></li>
+					<li><a href="#">세부메뉴 2-2</a></li>
+					<li><a href="#">세부메뉴 2-3</a></li>
+				</ul>
+			</li>
+
+			<li>
+				<h3>메뉴3</h3>					<!--link 걸리지 않은 mobile 터치용-->
+				<a href="#">메뉴3</a>			<!--rollover 가능한 PC용-->
+				<!-- 세부메뉴 -->
+				<ul class="sub_nav">
+					<li><a href="#">세부메뉴 3-1</a></li>
+					<li><a href="#">세부메뉴 3-2</a></li>
+					<li><a href="#">세부메뉴 3-3</a></li>
+				</ul>
+			</li>
+
+			<li>
+				<h3>메뉴4</h3>					<!--link 걸리지 않은 mobile 터치용-->
+				<a href="#">메뉴4</a>			<!--rollover 가능한 PC용-->
+				<!-- 세부메뉴 -->
+				<ul class="sub_nav">
+					<li><a href="#">세부메뉴 4-1</a></li>
+					<li><a href="#">세부메뉴 4-2</a></li>
+					<li><a href="#">세부메뉴 4-3</a></li>
+				</ul>
+			</li>
+
+			<li>
+				<h3>메뉴5</h3>					<!--link 걸리지 않은 mobile 터치용-->
+				<a href="#">메뉴5</a>			<!--rollover 가능한 PC용-->
+				<!-- 세부메뉴 -->
+				<ul class="sub_nav">
+					<li><a href="#">세부메뉴 5-1</a></li>
+					<li><a href="#">세부메뉴 5-2</a></li>
+					<li><a href="#">세부메뉴 5-3</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+
+
+
+<!--
+	<section id="visual">
+		<img src="http://placehold.it/1400x700" /> 
+	</section>
+-->
+
+<!----------- 010-default.html. section대신 집어넣기--------------->
+ <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide">Slide 4</div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="js/swiper.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container');
+  </script>
+
+
+<!------------ 280-autoplay.html - Initialize Swiper - script 붙여넣기 ---------------------------->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      }
+    });
+  </script>
+
+
+	  <div id="container">
+		<section id="con1">
+			<h2 class="con_title">Section Title - 1</h2>
+			<article>
+				<div>
+					<h3>Article Title 1-1</h3>
+					<p>Article Text 1-1</p>
+				</div>
+			</article>
+			<article>
+				<div>
+					<h3>Article Title 1-2</h3>
+					<p>Article Text 1-2</p>
+				</div>
+			</article>
+			<article>
+				<div>
+					<h3>Article Title 1-3</h3>
+					<p>Article Text 1-3</p>
+				</div>
+			</article>
+			<article>
+				<div>
+					<h3>Article Title 1-4</h3>
+					<p>Article Text 1-4</p>
+				</div>
+			</article>
+		</section>
+		
+		<section id="con2">
+			<h2 class="con_title">Section Title - 2</h2>
+			<article>
+				<div>
+					<h3>Article Title 2-1</h3>
+					<p>Article Text 2-1</p>
+				</div>
+			</article>
+			<article>
+				<div>
+					<h3>Article Title 2-2</h3>
+					<p>Article Text 2-2</p>
+				</div>
+			</article>
+			<article>
+				<div>
+					<h3>Article Title 2-3</h3>
+					<p>Article Text 2-3</p>
+				</div>
+			</article>
+			<article>
+				<div>
+					<h3>Article Title 2-4</h3>
+					<p>Article Text 2-4</p>
+				</div>
+			</article>
+		</section>
+	</div>
+
+
+
+	<footer id="main_footer">
+		<div id="f_sns">
+			<ul>
+				<li><a href="#">facebook</a></li>
+				<li><a href="#">instagram</a></li>
+				<li><a href="#">blog</a></li>
+			</ul>
+		</div>
+
+		<div id="f_logo">
+			<img src="http://placehold.it/200x50" alt="logo" />
+		</div>
+
+		<div id="f_address">
+			<address>
+				<span>주소 및 사업자 전화번호 사업자번호<br />주소 및 사업자 전화번호 사업자번호 주소 및 사업자 전화번호 사업자번호 주소 및 사업자 전화번호 사업자번호 주소 및 사업자 전화번호 사업자번호<br />
+				주소 및 사업자 전화번호 사업자번호 주소 및 사업자 전화번호 사업자번호</span>
+				<span>등록번호</span>
+				<span>상호</span>
+				<span>연락처<a href="tel:010-1234-5678">010-1234-5678</a></span>
+			</address>
+
+			<p class="copyright">카피라이트 입력부분</p>
+		</div>
+	</footer>
+</div>
+
+</body>
+</html>

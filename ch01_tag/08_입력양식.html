@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>입력 양식</title>
+</head>
+<body>
+
+<h1>입력 양식</h1>
+<h2>기본 구성 요소</h2>
+
+<div id="search_form"> <!-- 레이아웃 구성이 용이하도록 구조를 묶어줌 -->
+	<form action="" method=""> <!-- 지정된 action 속성의 장소에 method 속성에 적용도니 방식으로 전달 -->
+		<fieldset><!-- 비슷한 용도의 입력양식 묶음 -->
+			<legend>검색</legend> <!--fieldset의 제목-->
+			<label for="search_txt">SEARCH : </label> <!--for에 입력된 동일한 id명의 입력양식의 제목-->
+			<input id="search_txt" type="text" placeholder="검색어 입력" /> <!--텍스트 입력양식-->
+			<button>SEARCH</button> <!--버튼 입력양식-->
+		</fieldset>
+	</form>
+</div>
+
+<h2>기본 input 태그</h2>
+<input type="text" maxlength="5" placeholder="아이디"/>			텍스트필드, 글자입력양식, 아이디, 검색어 <br />
+<input type="password" placeholder="비밀번호"/>					비밀번호 입력양식 <br />
+<input type="hidden" />						숨김 입력 양식 <br /><br />
+
+<input type="file" />						첨부파일 <br /><br />
+
+<input type="submit" value="버튼1"/>						전송버튼 <br />
+<input type="reset" value="버튼2"/>						초기화버튼<br />
+<input type="button" value="버튼3"/>						일반버튼 <br />
+<button>버튼4</button>							일반버튼 <br /><br />
+
+<input type="image" src="http://placehold.it/150x30" alt="대체텍스트" />	이미지버튼 <br />
+<a href="#"><img src="http://www.dummyimage.com/150x30" alt="대체텍스트" /></a>	이미지에 링크설정  <br /><br />
+
+<input type="radio" />										라디오버튼<br />
+<input type="checkbox" />									체크박스<br />
+
+<h2>라디오버튼 : 탭메뉴</h2>
+<label for="gender_w"><input type="radio" name="gender" id="gender_w" />여자</label>
+<label for="gender_m"><input type="radio" name="gender" id="gender_m" />남자</label>
+
+
+<h2>체크박스</h2>
+<label for="h1"><input type="checkbox" name="hobby" id="h1" checked />헬스</label>
+<label for="h2"><input type="checkbox" name="hobby" id="h2" />여행</label>
+<label for="h3"><input type="checkbox" name="hobby" id="h3" />낚시</label>
+<label for="h4"><input type="checkbox" name="hobby" id="h4" />쇼핑</label>
+
+
+<h2>textarea 태그</h2>
+<textarea rows="3" cols="40"></textarea>
+
+<h2>select 태그</h2>			<!--디자인적 제약 有, 브라우저별 편차 큼-->
+<select>
+	<option>옵션 1</option>
+	<option>옵션 2</option>
+	<option>옵션 3</option>
+</select>
+
+</body>
+</html>

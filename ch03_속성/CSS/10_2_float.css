@@ -1,0 +1,32 @@
+/* 10_1_float.css */
+
+*{ margin: 0; padding: 0; }
+
+#wrap{
+	width: 800px;
+	border: 2px solid red;
+	/*margin-right: auto;*/	/*화면 가운데 위치하도록*/
+	/*margin-left: auto;*/
+	margin: 0 auto;  /*한줄로 쓸수있다 상하:0 좌우:auto*/
+		
+	/*마지막 영역에 영향 안받는 자식이 있으면 overflow:hidden필요없다*/
+}
+	#side{
+		width: 180px;
+		height: 800px;
+		background-color: skyblue;
+
+		float: left;
+	}
+	#contents{
+		width: 600px; 
+		background-color: green;
+
+		float: right;
+	}
+	#footer{
+		background-color: purple; /*width 설정 안하면 전체width 따라감*/
+		
+		clear: both;     /* contents와 side 높이 관계없이, float적용 순서 상관없이 영향 모두 받지않게 */
+		float: bottom;
+	}

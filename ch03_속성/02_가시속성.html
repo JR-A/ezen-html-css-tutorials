@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>02_가시속성</title>
+<style>
+*{ margin: 0; padding: 0;}
+span{ background-color: blue;}
+#box{ 
+	display: inline-block;			/*display에 적용될 수 있는 값 차례로 적용해보기*/
+	visibility: visible;			/*diplay:none; visibility:hidden; 비교*/
+	opacity: 0.5;					/*투명도조절*/
+
+	width: 500px;
+	height: 100px;
+	background-color: pink;
+}
+
+</style>
+</head>
+<body>
+
+<span>text</span>
+<span>text</span>
+<div id="box">BOX MODEL</div>
+<span>text</span><span>text</span>
+
+<h1>가시 속성</h1>
+태그가 화면에 보여지는 방식을 지정<br /><br />
+
+<h2>display 속성</h2>
+block         :  공간 개념으로 행단위 영역을 차지하며 폭, 높이 설정 가능<br />
+inline-block  :  이미지와같이 폭, 높이는 가지면서 자리는 글자처럼 차지<br />
+inline        :  text 입력한만큼만 자리 차지. 폭,높이 없음<br />
+none          :  화면상에 보이지 않음. 차지하고 있던 공간 자체도 사라짐<br />
+
+<h2>visibility 속성</h2>
+visible			화면에 보임<br />
+hidden			화면에서 숨겨짐. 원래 있던 공간은 그대로 차지<br />
+
+<h2>opacity 속성</h2>
+투명도. 0(투명)~1(불투명) 사이의 소수로 표현
+
+</body>
+</html>

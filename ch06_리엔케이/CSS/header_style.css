@@ -1,0 +1,158 @@
+/* header_style.css */
+
+/************** HEADER AREA ****************/
+#main_header{
+	width: 1020px;
+	height: 111px;
+	margin: 0 auto 9px;   /* 상0 우좌auto 하9px */
+	
+	position: relative;   /* 포지션 기준. height 속성이 반드시 있어야함 */
+
+	/*border: 2px solid red;*/
+}
+
+/*****  로고  *****/
+#main_header > .logo{   /* 한 라인에 메뉴가 겹쳐짐. float으로 위치잡기 불가 -> position 쓴다 */
+	position: absolute;  /*메인헤더 relative 기준으로 위치잡기*/
+	left: 438px;
+	top: 39px;				/* float으로 로고 자리잡으면 margin-left, margin-top 사용 */
+}
+	#main_header > .logo > a{
+		width: 145px; 
+		height: 28px;
+		background: url(../images/logo.png);
+
+		text-indent: -6000px;		/* 청각정보용 글자 ReNK 글자 숨기기 */
+		overflow: hidden;
+	}
+
+/***** 언어 선택 메뉴 *****/
+#main_header > .global_wrap{
+	position: absolute;
+	right: 0; top: 85px;
+
+	/*background: yellow;*/
+}
+	#main_header > .global_wrap > ul{		  /* 자손 선택자 > : 직계자식만*/
+		overflow: hidden;
+	}
+		#main_header > .global_wrap li{		   /* 후손선택자 띄어쓰기*/
+			float: left;
+		}
+		#main_header > .global_wrap li.en{		/* li의 속성으로 en클래스. 띄어쓰지말것->띄어쓰면 후손개념임 */
+			background: url(../images/line_2.jpg) no-repeat left center;
+													      /*  0   50%   결과동일*/
+			padding-left: 15px;
+		}
+		#main_header > .global_wrap li.ch{
+			background: url(../images/line_1.jpg) no-repeat 0 50%;
+			padding-left: 12px;
+			margin-left: 9px;
+		}
+
+			#main_header > .global_wrap a{
+				height: 26px;
+				line-height: 26px;
+				font-size: 15px;
+
+				letter-spacing: -1px;
+			}
+
+
+/***** 상단 메뉴 *****/
+#top_nav{
+	position: absolute;
+	left: 340px;	/* left right top bottom은 반드시 position 속성과 함께 써야함 */
+	top: 85px;
+
+	z-index: 10;  
+	/* 
+	z-index 는 생략하면 기본 0값. 
+	나중에 입력한 main_nav에 가려지지 않도록 우선순위 높여줌.
+	z-index 클수록 우선순위 높아짐 
+	*/
+	
+	/*background: beige;*/
+}
+	#top_nav > ul{
+		overflow: hidden;
+		padding-left: 21px;
+		background: url(../images/line_1.jpg) no-repeat left center;
+	}
+		#top_nav li{
+			float: left;
+
+			margin-right: 17px;
+		}
+		#top_nav li.search{		/*돋보기 옆 : 표시 위치 잡기*/
+			margin-left: 2px;
+			padding-left: 17px;
+			background: url(../images/line_1.jpg) no-repeat left center;
+			margin-right: 0;
+		}
+
+			#top_nav li > a{
+				height: 26px;
+				line-height: 26px;
+				font-weight: 700;
+				font-size: 13px;
+
+				letter-spacing: -1px;
+			}
+			#top_nav li.search > a,
+			#top_nav li.facebook > a{
+				width: 28px; height: 26px;
+				text-indent: -6000px; overflow: hidden;
+			}
+		
+			#top_nav li.search > a{
+				background: url(../images/btn_search.png);
+
+				}
+
+			#top_nav li.facebook > a{
+				background: url(../images/btn_facebook.png);
+			}
+		
+
+/***** 메인 메뉴 *****/
+#main_nav{
+	position: absolute;
+	left: 0; top: 85px;
+
+	/*background: pink;*/
+}	
+
+	#main_nav > ul{
+		overflow: hidden;
+	}
+		#main_nav li{
+			float: left;
+			margin-right: 41px;  /* 메뉴마다 간격 떨어트리기 */
+		}
+		#main_nav li#community{
+			margin-right: 433px;  /* shopping버튼 간격 떨어트리기 */	
+		}
+			#main_nav > ul > li > a{
+				height: 26px;
+				text-indent: -6000px; overflow: hidden;
+			}
+
+
+
+			#main_nav li#story > a{ 
+				width: 58px;		/* width값이 있어야함! */
+				background: url(../images/menu_story.png) no-repeat center;
+			}
+			#main_nav li#product > a{
+				width: 81px; 
+				background: url(../images/menu_product.png) no-repeat center;
+			}
+			#main_nav li#community > a{ 
+				width: 101px; 
+				background: url(../images/menu_community.png) no-repeat center;
+			}
+			#main_nav li#shopping > a{ 
+				width: 121px; 
+				background: url(../images/menu_shopping.png) no-repeat right;
+			}

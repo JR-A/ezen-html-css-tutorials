@@ -1,0 +1,54 @@
+/* 05_master.css */
+
+/*********************COMMON*********************/
+*{
+	margin: 0;		/*여백 삭제*/
+	padding: 0;
+}
+
+body{                     /*초기화 목적*/
+	font: 14px "돋움", Dotum;		/*디폴트는 16px*/
+	color: #000;
+}
+
+/************** LAYOUT **************/
+body{                    /*레이아웃 구성 목적*/
+	width: 1400px;
+	border: 2px solid red;
+	margin-left:auto;	/*왼쪽, 오른쪽 여백을 자동으로 맞춤*/
+	margin-right:auto;
+}
+
+/************* HEADER AREA **************/
+#main_header{
+	width: 1400px; /*어차피 body의 width따라감. witdth:100%; 해도 괜찮다*/
+	background-color: pink;
+}
+
+/************ CONTENTS AREA *************/
+#wrap{
+	width: 100%;
+	background-color: yellowgreen;
+	overflow: hidden; /*자식공간만큼 자리잡기*/
+}
+
+	#side_nav{
+		float: left;	/*왼쪽고정*/
+		width: 300px;
+		border: 2px solid yellow;
+		/*margin: 20px;*/		/*margin은 빈칸여백을 생성*/
+	}
+
+
+	#contents{
+		float: right;	/*오른쪽고정*/
+		width: 1080px;
+		border: 2px solid orange;
+		/*padding: 20px;*/		/*padding은 내 영역 넓혀 여백 생성*/
+	}
+
+/************ FOOTER AREA ***************/
+#main_footer{
+	width: 100%;
+	background-color: skyblue;
+}

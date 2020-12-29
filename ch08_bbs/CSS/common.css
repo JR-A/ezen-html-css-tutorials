@@ -1,0 +1,101 @@
+/* common.css */
+
+/*
+나눔고딕 웹폰트 소스링크 -눈누
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css); 
+.nanumgothic * { font-family: 'Nanum Gothic', sans-serif; }
+*/
+
+/*
+나눔바른고딕 웹폰트 소스 -눈누
+@font-face { font-family: 'NanumBarunGothic'; 
+font-style: normal; font-weight: 400; 
+src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot'); 
+src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype'); } @font-face { font-family: 'NanumBarunGothic'; font-style: normal; font-weight: 700; src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot'); src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype') } @font-face { font-family: 'NanumBarunGothic'; font-style: normal; font-weight: 300; src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot'); src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype'); } .nanumbarungothic * { font-family: 'NanumBarunGothic', sans-serif; }
+*/
+
+
+/*나눔고딕 font-face링크 임포트*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+/* 요소검사 -> css임포트 에러 -> 링크에 'http:' 추가! */
+
+
+/* 초기화 */
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html, body{  /* 줄간격 150% */
+	font: 12px / normal 'Nanum Gothic', sans-serif;		/*줄간격수정*/
+	color: #000;
+
+}
+
+table, tr, th, td{
+	font: 12px / normal 'Nanum Gothic', sans-serif;
+	color: #000;
+	border-collapse: collapse;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-size: 1.0em;
+	font-weight: normal;
+}
+
+/* 목록 표시지우기*/
+ul, ol, li{
+	list-style: none;
+}
+
+/* 인라인요소 블럭레벨로 바꾸기 */
+a, img, label{
+	display: block;
+}
+
+/* 최종화면에 노출시키지 않을 것들 숨기기 */
+hr, caption, legend{
+	display: none;
+}
+
+/* 입력양식 초기화 */
+input, select, option, textarea, button{
+	border: none;
+	background: transparent;
+	border-radius: 0;
+	outline: none;
+}
+
+/* 기본으로 테두리 생기는것들 초기화 */
+img, fieldset, frameset, iframe{
+	border: none;
+}
+
+/* 기본으로 두껍게되는 것 초기화 */
+strong, b{
+	font-weight: normal;
+}
+
+em, i, address{
+	font-style: normal;
+}
+
+/* 링크거는 a 태그 -> 자동밑줄, 색상변경되는거 초기화 */
+a{
+	text-decoration: none;
+	color: #000;
+}
+
+
+/************ CLASS STYLE ****************/
+.skip, .blind{		/*청각정보에 필요한 글자. 화면상에 노출되면 안되는것들*/
+	display: block;  /* skip, blind 클래스가 inline요소에 걸릴수도있음. inline요소는
+					  height:0 ; 할수없으므로 블럭레벨로 변경해준다. */
+	height: 0;		/*영역은 줄고 글자만 보인다*/
+	overflow: hidden; /*영역 벗어나면 숨김*/
+
+	position: absolute;  /* 스크롤은 위로 올라가지 못하므로 y축 위로(-방향) 보내버림 */
+						/*relative가 없으면 전체 브라우저 기준*/
+						/*relative 있어도 -6000px 정도 올리면 보일 가능성이 희박*/
+	top: -6000px;
+}

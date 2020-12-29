@@ -1,0 +1,59 @@
+/* content_style.css */
+
+#container{
+	width: 1400px;
+	margin: 0 auto;
+}
+@media screen and ( max-width: 1366px ){		/*휴대폰 환경에서 container width 수정*/
+#container{
+	width: 100%;
+}
+}
+
+	#container > section{
+		width: 100%;
+		margin-top: 50px;
+
+		overflow: hidden;
+	}
+
+		#container h2.con_title{
+			border-bottom: 2px solid #999;
+			font-weight: 900;
+			font-size: 24px;
+			text-align: center;
+			height: 50px; line-height: 50px;
+			margin-bottom: 20px;
+		}
+
+		#container > section > article{
+			float: left;
+			width: 335px; height: 300px;
+			background: #dfdfdf;
+			margin-right: 20px;
+		}
+		/*** 스크린크기따라 article container 크기 조정  ***/
+		@media screen and ( max-width: 1366px ){	/* article 네 개씩 */
+		#container > section > article{
+			width: 23.5%;		/* (100% - 마진2%x3)/4= 23.5% */
+			margin-right: 2%;
+		}
+		}
+		@media screen and ( max-width: 767px ){		/* article 두 개씩 */
+		#container > section > article{
+			width: 45%;
+			margin: 0 2.5%;
+			margin-bottom: 10px;
+		}
+		}
+		@media screen and ( max-width: 413px ){		/* article 한 개씩 */
+		#container > section > article{
+			width: 95%;
+			margin: 0 2.5%;
+			margin-bottom: 10px;
+		}
+		}
+
+		#container > section > article:last-child{	/* 맨 오른쪽 article은 오른쪽마진 없애주기 */
+			margin-right: 0;
+		}

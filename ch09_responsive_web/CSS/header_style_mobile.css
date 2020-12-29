@@ -1,0 +1,226 @@
+/* header_style_mobile.css */
+@media screen and ( max-width: 767px ){
+#wrap{
+	position: fixed;
+	left: 0; top: 0; bottom: 0;
+	overflow: auto;
+	transition-duration: 0.3s;
+}
+
+input#toggle_menu:checked + #wrap{		/* 메뉴 펼쳤을때 전체화면이 같이 밀리도록 */
+	left: 70%;
+}
+}
+
+#main_header{
+	width: 100%;
+	height: 50px;			/* mobile은 header높이가 50px정도여야 적당함 */
+	background: #fff;
+	border-bottom: 2px solid #999;
+	position: fixed;		/* logo, 햄버거버튼, 검색버튼 및 검색form 위치 잡기 위한 기준 */
+	left: 0; top: 0;		/* 헤더 스크롤해도 상단고정 - 사용성 측면에서 좋음 fixed */
+
+	z-index: 100;			/* swiper가 헤더 겹쳐서 가리는것 해결 */
+}
+
+@media screen and ( max-width: 767px ){
+input#toggle_menu:checked + #wrap #main_header{
+
+	left: 70%;
+}
+}
+
+	/*** 로고 ***/
+	#main_header > h1.logo{
+		position: absolute;
+		left: 50%; top: 50%;
+		transform: translateX(-50%) translateY(-50%);		/*x축 방향 왼쪽으로50%, y축방향 위로50% 위치옮기는 방법*/
+
+		/* top: 8px; margin-left: -80px; */   /*직접 px 설정해 위치 옮기는 방법*/
+	}
+
+		#main_header > h1.logo > a{
+			width: 160px;
+			height: 35px;
+			background: url(http://placehold.it/160x35);
+			text-indent: -60000px; overflow: hidden;
+		}
+	
+	/*** 메뉴 햄버거 버튼 ***/
+	label.toggle_menu{
+		width: 35px; height: 35px;
+		background: #dfdfdf;
+
+		position: absolute;
+		left: 5px; top: 8px;
+	}
+
+		label.toggle_menu::before,	/*버튼 만들기*/
+		label.toggle_menu::after{
+			content: "";
+			display: block;
+			width: 31px;
+			height: 3px;
+			background: #999;
+
+			position: absolute;
+			left: 2px; top: 16px;
+		}
+
+		label.toggle_menu::after{
+			transform: rotateZ(90deg);   /* 90도회전 */
+			transition-duration: 0.3s;
+		}
+
+		input#toggle_menu:checked + #wrap label.toggle_menu::after{	/* 메뉴버튼(햄버거버튼 대체) 클릭시 회전하여 모양변경 */
+			transform: rotateZ(0deg);
+		}
+
+	/*** 검색 버튼 및 검색form ***/
+	label.toggle_search{
+		width: 35px; height: 35px;
+		background: url(http://placehold.it/35x35);
+		text-indent: -60000px; overflow: hidden;
+
+		position: absolute;
+		right: 5px; top: 8px;
+	}
+
+	input#toggle_search:checked + label.toggle_search{		/* 검색버튼 눌렀을때 색상변경 */
+		background: pink;
+	}
+
+	#search_wrap{						/*0~768px 폭 - 휴대폰의 경우 -> width: 100% */
+		width: 100%; height: 0;		/* height속성 있으므로 #search_btn 위치 잡을 수 있음. 검색버튼 안눌렸을땐 검색창높이0 */
+		background: rgba(0, 0, 0, 0.3);
+
+		position: absolute;
+		top: 50px; right: 0;
+
+		box-sizing: border-box;
+		padding: 0 5px;
+
+		overflow: hidden;			/* 영역 밖 입력양식 보이지 않도록 */
+		transition-duration: 0.3s;		/* 검색창 뜨는 모션 부드럽게 */
+	}
+
+	input#toggle_search:checked + label.toggle_search + #search_wrap{		/* 동위선택자 ~는 mobile에서 적용되지x -> 동위선택자 + 사용해야함. 검색버튼 누르면 검색창 뜨도록 */
+		height: 45px;
+	}
+
+	@media screen and ( min-width: 768px ){			/* 768~1366px 폭 - 태블릿PC의 경우 검색영역 고정되도록. master.css참고-1366이하는 모두 mobile.css로 묶었음 */
+	#search_wrap{
+		width: 500px;
+	}
+	}
+
+		#search_wrap fieldset{}
+			#search_wrap fieldset > input{}
+			input#search_txt{
+				background: #fff;
+				width: 100%; height: 35px;
+
+				box-sizing: border-box;			/* 글자가 길어질 때 버튼에 가려지지 않도록 */
+				padding-left: 10px;
+				padding-right: 45px;
+
+				margin-top: 5px;
+			}
+			input#search_btn{
+				position: absolute;		/* 기준 : #search_wrap. 직계부모 아니더라도 조상중에 position속성 있으면 기준이 될 수 있다 */
+				right: 5px; top: 5px;
+			}
+
+
+	/**** 토글 메뉴 ********/
+	#main_nav_wrap{
+		position: fixed;
+		left: -300px; top: 50px;		/* 평상시엔 안보이도록 */
+
+		z-index: 100;			/* swiper가 헤더 겹쳐서 가리는것 해결 */
+
+		width: 300px;
+		height: 500px;
+		
+		box-sizing: border-box;			/* 왼쪽으로 숨겼는데 보더 두께만큼 보여서 처리 */
+		border: 2px solid #999;
+		background: #fff;
+
+		transition-duration: 0.3s;
+	}
+
+	@media screen and ( max-width : 767px ){
+	#main_nav_wrap{
+		left: -70%; top: 0;
+
+		width: 70%;
+		height: 100%;
+	}
+	}
+
+	input#toggle_menu:checked + #wrap #main_nav_wrap{		/*햄버거 버튼 클릭시 메뉴 나타나도록*/
+		left: 0;
+	}
+
+
+	/*** 상단 메뉴 ***/
+		#top_nav_m{
+			width: 100%; height: 30px;
+		}
+
+			#top_nav_m > li{
+				float: left;
+				width: 50%;
+				border-bottom: 2px solid #999;
+			}
+
+				#top_nav_m > li > a{
+					line-height: 30px;
+					text-align: center;
+				}
+				
+				#top_nav_m > li:first-child > a{
+					border-right: 2px solid #999;
+				}
+
+/*** 메인 메뉴 ***/
+#main_nav{
+	position: absolute;		/*#main_nav_wrap(position:fixed) 가 기준*/
+	left: 0; 
+	top: 32px;	/* #top_nav_m > li의 border-bottom:2px 가려져서 2px늘여줌*/
+	bottom: 0;
+	overflow: auto;			/* 영역 벗어난 메뉴부분은 손가락 스크롤로 보일수 있도록 */
+
+	width: 100%;
+	background: #dfdfdf;
+}
+
+	#main_nav > li{
+		border-bottom: 2px solid #999;
+	}
+		#main_nav > li > h3{
+			height: 30px;
+			line-height: 30px;
+			padding: 0 5px;
+			
+		}
+
+
+		/*** 세부메뉴 ***/
+		#main_nav > li > .sub_nav{}
+
+			#main_nav > li > .sub_nav > li{
+				height: 0;			/*평상시엔 접혀있도록*/
+				overflow: hidden;	/*영역 벗어난 곳 보이지 않기*/
+				transition-duration: 0.3s;
+			}
+
+			#main_nav > li.active > .sub_nav > li{
+				height: 25px;
+			}
+
+				#main_nav > li > .sub_nav > li > a{
+					line-height: 25px;
+					padding: 0 10px;
+					background: #ccc;
+				}

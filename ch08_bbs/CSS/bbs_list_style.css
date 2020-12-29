@@ -1,0 +1,161 @@
+/* bbs_list_style.css */
+@import url(common.css);
+
+#board_wrap{
+	width: 690px;
+	margin: 50px;
+	border: 2px solid red;
+}
+
+/***** 검색 *****/
+#search_form{ 
+	width: 100%; 
+	margin-bottom: 10px;
+}
+#search_form > form{ 
+	width: 100%;
+	overflow: hidden;
+}
+
+#search_form fieldset{
+	float: right;
+	margin-top: 31px;
+	margin-right: 10px;
+	/*background: pink;*/
+}
+
+	#search_form label{
+		float: left;
+		margin-top: 7px;
+	}
+	input#search_txt{
+		float: left;
+		width: 133px; height: 19px;
+		box-sizing: border-box;
+		border: 1px solid #d1d1d1;
+		/*background-color: #fff;*/
+		margin: 0 4px; /*좌우4px*/
+	}
+	input#search_btn{
+		float: left;
+	}
+
+/***** 게시판 *****/
+
+#board{ width: 100%; }
+
+#board > div{}
+#board > .head{ 
+	width: 100%;
+	height: 37px;
+	background: url(../images/bar_dark_bg.gif) repeat-x;
+	line-height: 37px;
+	color: #61b96f;
+	font-weight: 800;
+}
+#board > .main{ width: 100%; }
+#board > .number{ 
+	width: 100%;
+	height: 32px;
+	background: url(../images/bbsBottomBg.gif) repeat-x left bottom;
+}
+
+	#board > div > ul{}
+	#board > div.head > ul{
+		height: 34px;
+		border-left: 3px solid #5db062;		/*hit가 자리가 모자라서 내려감 .no width 줄여주기*/
+		border-right: 3px solid #5db062;		/*hit가 자리가 모자라서 내려감 .hit width 줄여주기*/
+	}
+
+		#board > div > ul > li{
+			overflow: hidden;
+		}
+		#board > div.main > ul > li{
+			height: 28px;
+			border-bottom: 1px solid #e6e6e6;
+			line-height: 28px;
+			color: #666;   /*글자색상*/
+		}
+
+		#board > div.main > ul > li a{
+			color: #666;    /*링크 걸리는 글 제목은 별도로 색상 주어야 적용됨*/
+		}
+
+			#board > div > ul > li > span{
+				float: left;
+				display: block;
+				text-align: center;
+			}
+			#board > div > ul > li > span.title{		/* 선택자 모양이 같아야 기존속성이 수정됨. .title만하면 오류날수있다 */
+				text-align: left;
+			}
+			
+			.head .no{ width: 56px; }			/*border때문에 3px 줄여줌*/
+			.main .no{ width: 59px; }
+			
+			.title{ width: 412px; }
+			.date{ width: 107px; color: #61b96f; }
+			.writer{ width: 40px; }
+
+			.head .hit{ width: 69px; }			/*border때문에 3px 줄여줌*/
+			.main .hit{ width: 72px; color: #61b96f; font-weight: 800; }
+
+
+		#board > .number > p{
+			/*height: 32px;         .number로 옮김
+			background: url(../images/bbsBottomBg.gif) repeat-x left bottom;*/
+			text-align: center;
+			line-height: 32px;
+		}
+
+			#board > .number > p > a{ 
+				display: inline;
+				color: #cecece;
+			}
+			#board > .number > p > a.active{
+				color: #555
+			}
+			#board > .number > p > span{
+				color: #cdcdcd;
+			}
+
+
+
+
+/*내가한거*/
+/*
+#board{ width: 100%; }
+#board > div{
+}
+	#board > div.head{}
+		#board > div.head > ul{
+			height: 37px;
+			background: url(../images/bar_dark_bg.gif) repeat-x;
+		}
+
+			#board > div > ul > li{
+				overflow: hidden;
+			}
+			#board > div.head > ul > li{
+				color: #61b96f;
+				font-weight: 800;
+			}
+				#board > div > ul > li > span{ float: left; line-height: 35px; text-align: center; }
+				#board > div > ul > li > span.no{ width: 50px; }
+				#board > div > ul > li > span.title{ width: 400px; }
+				#board > div > ul > li > span.date{ width: 100px; color: #61b96f; }
+				#board > div > ul > li > span.writer{ width: 80px; }
+				#board > div > ul > li > span.hit{ width: 45px; color: #61b96f; font-weight: 800; }
+
+				#board > div.head > ul > li > span{}
+
+	#board > div.main{}
+		#board > div.main > ul > li{
+			height: 28px;
+			border-bottom: 1px solid #e6e6e6;
+		}
+				#board > div.main > ul > li > span { line-height: 30px; }
+				#board > div.main > ul > li > span.title{ text-align: left; }
+	#board > div.number{}
+*/
+/*내가한거*/

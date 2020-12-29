@@ -1,0 +1,52 @@
+<!-- Adobe color 사이트 참조 - color.adobe.com-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>01_CSS 단위</title>
+</head>
+<body>
+
+<h1>CSS 단위</h1>
+
+<h2>크기 단위</h2>
+px(픽셀), %, rem, em(배수단위), vw(전체 노출되는 화면기준 너비에 맞춤), vh(전체 노출되는 화면기준 높이에 맞춤), pt, ex, cm, mm, in(인치).... <br />
+<strong>주로 많이 사용 : px % rem em vw vh</strong><br /><br />
+
+
+<h2>색상 단위</h2>
+색상명, 16진수 색상코드(HEX단위),
+RGB단위, RGBA단위, HSL단위, HSLA단위 등...<br />
+<strong>주로 많이 사용 : HEX, RGBA </strong><br /><br />
+
+<p style="color: red;">색상명</p> -> red, orange, pink... <br />
+<p style="color: #ff0000;">HEX단위</p> -> #RRGGBB	->	#ff0000(#f00)<br />
+<p style="color: rgb(255,0,0);">RGB단위</p> -> rgb(red, green, blue) -> rgb(255,0.0);<br />
+<p style="color: rgba(255,0,0,0.5);">RGBA단위</p> -> rgba(red, green, blue, alpha)	->	rgba(255,0,0,0.5); ** alpha : 투명도 **<br />
+<p style="color: hsl(0,100%,50%);">HSL단위</p> -> hsl(hue, saturation, lightness)	->	hsl(0,100%,50%);<br />
+<p style="color: hsla(0,100%,50%,0.5);">HSLA단위</p> -> hsla(hue, saturation, lightness, alplha)	->	hsl(0,100%,50%, 0.5);<br />
+
+<br />
+***HEX단위 표기법***<br />
+#RRGGBB = #RGB<br />
+Red Green Blue - 빛의 3원색<br />
+각 자리별로 색상 표현 - 0~9 A~F <br />
+-검정 #000000  -> #000	반복되는 것 축약가능<br />
+-흰색 #ffffff  -> #fff <br />
+-빨강 #ff0000  -> #f00 <br />
+-#ff9a00 -> 세자리로 쓸 수 없음<br />
+
+<h2>URL 단위</h2>
+절대경로, 상대경로 <br /> <br />
+
+<strong>--상대경로 : 현재 문서 기준으로 보여주고자 하는 이미지, 링크된 html문서의 상대적 경로</strong> <br />
+현재폴더/file.확장자 - 현재 문서 기준 같은 폴더에 위치한 file <br />
+./file.확장자 - 현재 문서 기준 같은 폴더에 위치한 file <br />
+../file.확장자  - 현재 문서 기준 상위 폴더에 위치한 file <br /> <br />
+
+
+<strong>--절대경로 : 보여주고싶은 파일이나 문서의 컴퓨터상 경로.</strong> <br /> <br />
+
+</body>
+</html>

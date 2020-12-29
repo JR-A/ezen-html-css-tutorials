@@ -1,0 +1,26 @@
+/* master.css */
+@import url( common.css );
+
+@import url( header_style_pc.css ) screen and (min-width: 1367px);     /*url 뒤에 띄어쓰기 안하도록 조심*/
+@import url( header_style_mobile.css ) screen and (max-width: 1366px);		/* 태블릿, 휴대폰 모두 포함 */
+
+@import url( content_style.css );
+
+@import url( footer_style.css );
+
+#wrap { width: 100%; }
+
+#visual,
+#visual > img{
+	width: 100%;
+}
+
+
+/*
+기기별 해상도 width
+★PC : 1367px ~
+
+★Mobile
+-Ipad,Ipad Pro : 768px ~ 1366px 
+-Iphone : ~ 767px
+*/

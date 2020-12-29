@@ -1,0 +1,111 @@
+<!--
+div - block-level element. 구조 형성할때 사용. . 디폴트로 inline break 들어감. content 유형 관계없이 div태그 내에 들어갈수있음
+span - inline-level element. 최소 글자영역만큼만. 폭, 높이 없이. 텍스트나 도큐멘트의 부분을 마크업할때 사용. 
+
+
+1. Block level element
+- 자동으로 개행이 이루어지며, 좌우 모든 여백을 사용하는 태그를 의미한다.
+ex) h1 태그, p 태그 
+
+2. inline element
+- 자동으로 개행이 이루어지지 않으며, 컨텐츠가 필요로하는 만큼의 공간만 차지하는 태그를 의미한다.
+ex) a 태그, img 태그, span 태그 등
+
+3. display property​​
+- block level element를 inline element로 바꾸거나 그 반대를 가능하게 해주는 속성이다.
+ex) display: block;  // block element로 변경
+	display: none;  //화면상에 나타나지 x
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>11_전후 문자 선택자</title>
+<style>
+
+.test{
+	border: 2px solid red;
+}
+
+	.test > p{
+		background-color: pink;
+	}
+
+	.test::before{
+		content: "before";
+	}
+	.test::after{
+		content: "after";
+	}
+
+label.label{
+	display: block;
+	width: 40px; height: 40px;
+	background-color: pink;
+	/*border-radius: 20px 20px 20px 20px;*/			 /*각을 둥글게*/
+	border-radius: 20px;			 /* 4각을 똑같은 값만큼 둥글게 할거라서 값 한개만 써도 괜찮다. */
+
+	position: relative;  /* 기준 */
+}
+
+
+	label.label > span,
+	label.label::before,
+	label.label::after{
+		display: block;
+		height: 2px;
+		background-color: #fff;
+
+		position: absolute;
+		left: 5px;
+		transition-duration: 0.3s; /*모션을 부드럽게*/
+	}
+
+	label.label > span{
+		top: 19px;
+		width: 20px; 
+	}
+
+	label.label::before{
+		content: "";
+		top: 9px;
+		width: 25px; 
+	}
+
+	label.label::after{
+		content: "";
+		/*bottom: 9px;*/
+		top: 29px;
+		width: 30px; 
+	}
+
+
+	/*체크시 width 조절(상태선택자 + )*/
+	input#toggle:checked + label.label > span{
+		width: 30px; 
+	}
+	input#toggle:checked + label.label::before{
+		width: 20px; 
+	}
+	input#toggle:checked + label.label::after{
+		width: 15px; 
+	}
+
+</style>
+</head>
+<body>
+
+<h1>전후 문자 선택자</h1>
+::before		태그 앞에 위치한 공간	<br />
+::after			태그 뒤에 위치한 공간
+
+<h2>적용</h2>
+<div class="test"><p>text</p></div>
+
+<h2>햄버거 버튼</h2>
+<input id="toggle" type="checkbox" />
+<label class="label" for="toggle"><span></span></label>		<!--span 범위 설정 위한 태그-->
+
+</body>
+</html>

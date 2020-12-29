@@ -1,0 +1,214 @@
+/* master.css */
+/*
+자식이 float했을때 부모는
+1. overflow: hidden 하거나
+2. height 속성값 가지거나
+3. float: left or right 로 고정
+*/
+
+@import url(common.css);  /*매번 초기화 하기 번거로우니 따로 파일 만들어 import*/
+
+body{
+	width: 960px;  /*브라우저전체에 들어강*/
+	margin: 0 auto;
+	background: url(../images/bg_body.gif) repeat-x;
+	/*border: 2px solid red;*/
+}
+
+
+/************ HEADER AREA ***************/
+#main_header{
+	width: 100%;
+	height: 60px;
+	background: url(../images/bg_header.gif) no-repeat 50%;
+	/* 배경이미지 때문에 height를 고정시켰으므로 자식 float때문에 틀 깨지지x. overflow:hidden필요없다 */
+	/*border: 2px solid red;*/
+}
+
+	/***** 로고 ******/
+	#main_header > .logo{
+		margin-top: 10px; 
+		margin-left: 34px;
+
+		float: left;
+	}
+
+	/***** 상단메뉴 ******/
+	#top_nav{
+		margin-top: 30px;
+		margin-right: 33px;
+
+		float: right;
+	}
+		#top_nav > ul{
+			/*border: 2px solid green;*/
+			overflow: hidden;	/*border 보니 영역 못잡으므로 overflow:hidden준다.*/
+		}
+			#top_nav > ul > li{
+				margin-left: 11px;
+
+				float: left;
+			}
+				#top_nav > ul > li > a{
+					font-size: 16px;
+					color: #464646;  /*폰트색상은 무조건 a에 적어야*/
+
+					height: 19px;	/*book 클래스때문에 높이 높여줌*/
+					line-height: 19px;
+				}
+
+				#top_nav > ul > li.book > a{
+					background: url(../images/sprites.gif) no-repeat;
+					/*margin-left: 7px;*/
+					/*배경이 아닌 배경 바깥영역이 넓혀짐 -> padding*/
+					padding-left: 7px;
+				}
+
+
+/************ VISUAL IMAGE AREA ***************/
+#visual_image{
+	height: 397px;
+	width: 100%;
+	/*border: 2px solid orange;*/
+}
+
+/************ CONTENTS AREA ***************/
+#wrap{
+	margin-top: 34px;
+	margin-bottom: 76px;
+
+	overflow: hidden;
+
+	/*border: 2px solid purple;*/
+}
+
+	#wrap > article {
+		width: 425px;
+		height: 199px;
+
+		float: left;
+
+		/*border: 2px solid green;*/
+	}
+
+		/***** 콘텐츠 박스 제목 *****/
+		#wrap > article > h3{
+			height: 48px;
+			margin-bottom: 10px;
+		}
+
+			/***** 콘텐츠 내용 *****/
+			#wrap > article > .thumb{
+				float: left;
+			}
+				#wrap > article > .thumb > a{
+					width: 154px;		/* .thumb가 아닌 a에다 넣어주기 */
+					height: 141px;
+
+					text-indent: -6000px;   /*글자 왼쪽으로 밀어서 화면 밖으로 숨기기 - 청각정보숨김*/
+					overflow: hidden;
+				}
+					a#refund{ background: url(../images/thumb_refund.jpg) no-repeat; }
+					a#shelf{ background: url(../images/thumb_shelf.jpg) no-repeat; }
+					a#library{ background: url(../images/thumb_library.jpg) no-repeat; }
+					a#bus{ background: url(../images/thumb_bus.jpg) no-repeat; }
+
+			#wrap > article > .description{  /* float할때 width 넣어주지않으면 글자폭 따라감. 꼭 넣기*/
+				width: 247px;
+
+				float: right;
+			}
+				#wrap > article > .description > p{
+				}
+					#wrap > article > .description > p > strong{ /*나눔바른고딕 적용*/
+						display: block;		/*글자가 한 줄 전체 차지 -> span과 구분! */
+
+						font: 13px 'NanumBarunGothic', sans-serif;
+						font-weight: 700;
+
+						margin-bottom: 5px;  /* span과 거리 주기 */
+					}
+					#wrap > article > .description > p > span{
+						display: block;	/*글자가 한 줄 전체 차지 */
+
+						color: #878787;
+					}
+				#wrap > article > .description > a.more{
+					font-weight: 700;
+					background: url(../images/icon.gif) no-repeat left center;
+					margin: 8px 0;  /* margin 상하8px 좌우0 */
+					padding-left: 7px;  /* 이미지 위치 변경-안쪽공간 늘이기 */
+				}
+				#wrap > article > .description > dl{
+					float: left;		/* 자식 공간만큼만 보더가 자리잡도록 하기위함. overflow hidden하면 보더가 줄전체차지함.*/
+					height: 35px;
+					line-height: 35px;
+					border-top: 1px solid #cbcbcb;
+					border-bottom: 1px solid #cbcbcb;
+				}
+					#wrap > article > .description > dl > dt{
+						float: left;
+					}
+					#wrap > article > .description > dl > dd{
+						float: left;
+					}
+						#wrap > article > .description > dl > dd > em{
+							color: #ff3c0c;
+							font: bold 27px Verdana; /*굵은서체에 bold효과까지*/
+							margin: 0 5px;
+						}
+	
+
+
+/************ FOOTER AREA ***************/
+#main_footer{
+	padding: 21px 0 25px; /* 패딩 상21px 좌우0 하25px */
+	border-top: 1px solid #000;
+}
+
+	#main_footer > h1.logo{   /* 태그명 h1은 생략가능 */
+		float: left;
+		margin-left: 244px;
+	}
+	#main_footer > ul{
+		float: right;
+		margin-right: 283px;
+	}
+		#main_footer > ul > li{
+			float: left;
+			margin-left: 6px;
+			padding-left: 8px;
+			background: url(../images/line.gif) left center no-repeat;
+		}
+		
+		#main_footer > ul > li:first-child{
+			background: none;  /*첫 번째 라인이미지- 없애주기*/
+		}
+			#main_footer > ul > li > a{}
+			#main_footer > ul > li > a > img{}
+
+	#main_footer > address{
+		clear: both;  /* float의 영향 받지 않고 밑에줄로 내려가기*/
+		
+		/*margin-top: 12px;*/   /*clear속성 적용한 경우엔 margin-top적용이 안된다-> padding-top 적용*/
+		padding-top: 12px;
+		text-align: center;  /* 가운데 정렬 */
+		font-size: 15px;
+		font-weight: 700;
+	}
+
+		#main_footer > address > a{
+			/* 
+			현재 a태그를 block레벨로 초기화시켰기때문에(common.css) 3줄로 나타난다.
+			그러므로 a태그를 인라인 요소로 다시 변경시켜줘야함
+			보통 a태그는 block레벨로 쓰는경우가 가장많으므로 초기화 시켰던것임.
+			*/
+			display: inline; 
+			color: #0275c5;
+			font-family: Verdana;
+			letter-spacing: 0;
+		}
+
+/************ CLASS STYLE ***************/		/*아티클 위치 잡기위한 클래스*/
+.m_r_98{ margin-right: 98px; }
+.m_b_56{ margin-bottom: 56px; }

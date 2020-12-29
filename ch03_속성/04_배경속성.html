@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>04_배경속성</title>
+<style>
+	/* *{ margin: 0; padding: 0;} */
+
+.box1, .box2, .box3{
+	width: 600px;
+	height: 500px;
+	border: 2px solid red;
+	margin: 10px;
+}
+
+.box1{
+	background-color: #ccc;   /* rgb같은값 들어가면 회색이 됨 */
+	background-image: url(images/img5.jpg);
+	background-repeat: no-repeat;
+	/*background-position: center center;*/
+	background-position: 50% 50%;	/*상동*/
+	background-size: 200px auto;  /*가로 세로를 고정된 값으로 설정하면 비율이 틀어지므로 가로나 세로만 고정하고 auto로 비율 자동맞춤*/
+	background-size: cover;       /*배경에 이미지가 꽉차게*/
+	background-size: contain;     /*이미지 비율 고정하고 이미지가 배경에 맞게 가장 큰 사이즈로 표현*/
+	background-attachment: fixed;  /*이미지고정*/
+}
+
+.box2{
+	background: url(images/img6.jpg) no-repeat 0 50% / 200px 200px fixed #ccc;    
+	/*url맨 먼저, 포지션/사이즈, 색상은 맨 마지막에. 웬만하면 포지션과 사이즈는 따로 써준다.*/
+	background-position: 0 50%;
+	background-size: 200px 200px;
+}
+
+.box3{
+	background: url(images/bg_text.png) no-repeat, 
+				url(images/bg_pattern.png) repeat #999;
+	background-position: center, left top;   /*center center처럼 반복되는것은 한번만 써도 됨*/
+	background-size: auto, 20px 20px;
+
+}
+
+</style>
+</head>
+<body>
+
+<h1>배경속성</h1>
+, 로 구분하여 1개 이상의 배경을 동시에 표현
+
+<h2>종류</h2>
+<ul>
+<li>background-color       :   배경색 색상단위 모두 적용가능  </li><br/>
+<li>background-image       :   url(상대경로/이미지명.확장자)  </li><br/>
+<li>background-repeat      :   연속성 repeat(연속, 디폴트), no-repeat(비연속), repeat-x(가로방향연속), repeat-y(세로방향연속)  </li><br/>
+<li>background-position    :   이미지 위치 x, y축 순서로 입력(left center right | top center bottom, 크기단위입력) </li> <br/>
+<li>background-size        :   이미지 크기. width(폭), height(높이). 크기단위 입력, auto contain cover </li> <br/>
+<li>background-attachment :   고정값(모바일 지원하지 X) , scroll(스크롤,디폴트), fixed(고정)  </li><br/>
+
+</ul>
+
+<h2>적용</h2>
+<div class="box1">배경 속성 적용</div>
+
+<div class="box2">배경속성 한번에 적용</div>
+
+<div class="box3">배경이미지 2개 적용</div>
+
+</body>
+</html>

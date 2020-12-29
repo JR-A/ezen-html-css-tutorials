@@ -1,0 +1,139 @@
+/* bbs_table_style.css */
+@import url(common.css);
+
+#board_wrap{
+	width: 690px;
+	margin: 50px;
+	border: 2px solid red;
+}
+
+/***** 검색 *****/
+#search_form{ 
+	width: 100%; 
+	margin-bottom: 10px;
+}
+#search_form > form{ 
+	width: 100%;
+	overflow: hidden;
+}
+
+#search_form fieldset{
+	float: right;
+	margin-top: 31px;
+	margin-right: 10px;
+	/*background: pink;*/
+}
+
+	#search_form label{
+		float: left;
+		margin-top: 7px;
+	}
+	input#search_txt{
+		float: left;
+		width: 133px; height: 19px;
+		box-sizing: border-box;
+		border: 1px solid #d1d1d1;
+		/*background-color: #fff;*/
+		margin: 0 4px; /*좌우4px*/
+	}
+	input#search_btn{
+		float: left;
+	}
+
+/*내가한거
+#search_form fieldset{ 
+	width: 100%;
+	overflow: hidden;
+	padding-top: 31px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+}
+
+	#search_form label{
+		float: right;
+	}
+	input#search_txt{ 
+		float: right;
+		border: 1px solid grey;
+	}
+	input#search_btn{
+		float: right;
+	}
+*/
+
+/***** 게시판 *****/
+#board{ width: 100%; }
+#board > table{ 
+	width: 100%;
+}
+
+	/** thead **/
+	#board thead{
+		
+	}
+		#board thead > tr{
+			height: 37px;
+			background: url(../images/bar_dark_bg.gif) repeat-x;
+		}
+			#board thead > tr > th{
+				color: #61b96f;
+				font-weight: 800;
+			}
+
+				#board thead > tr > th.no > p,		/* 옆에 초록색 바 위해 p태그 추가~보더넣고 위치맞추기 */
+				#board thead > tr > th.hit > p{
+					height: 34px;
+					margin-bottom: 3px;
+					line-height: 37px;
+				}
+				#board thead > tr > th.no > p{
+					border-left: 3px solid #5db062;
+				}
+					
+				#board thead > tr > th.hit > p{
+					border-right: 3px solid #5db062;
+				}
+	
+	/** tbody **/
+	#board tbody{}
+		#board tbody > tr{ 
+			height: 28px;
+			border-bottom: 1px solid #e6e6e6;
+		}
+			#board tbody > tr > td{
+				color: #666;
+				text-align: center;
+			}
+			#board tbody > tr > td > a{		/*제목 부분만 left 정렬*/
+				color: #666;
+				text-align: left;
+			}
+
+			#board tbody > tr > td.date,
+			#board tbody > tr > td.hit{
+				color: #61b96f;
+			}
+
+			#board tbody > tr > td.hit{
+				font-weight: 800;
+			}
+
+	/** tfoot **/
+	#board tfoot{}
+		#board tfoot > tr{
+			height: 33px;			/*원래 32px인데 위에 border-bottom의 영향으로(1px침범) 초록선이 안보인다. 1px더줘서 33px */
+			background: url(../images/bbsBottomBg.gif) repeat-x left bottom;
+		}
+			#board tfoot > tr > td{
+				text-align: center;
+			}
+				#board tfoot > tr > td > a{
+					display: inline;
+					color: #cecece;
+				}
+				#board tfoot > tr > td > a.active{
+					color: #555
+				}
+				#board tfoot > tr > td > span{
+					color: #cdcdcd;
+				}

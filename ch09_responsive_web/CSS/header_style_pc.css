@@ -1,0 +1,147 @@
+/* header_style_pc.css */
+
+#main_header{
+	width: 1400px; height: 120px;
+	margin: 0 auto 10px;
+	position: relative;
+	/*border: 2px solid red;*/
+}
+
+	/* 로고 */
+	#main_header > h1.logo{
+		position: absolute;
+		left: 50%; bottom: 0;           /* 로고가 전체폭의 가운데부터 시작 -> 로고 폭도 있기 때문에 오른쪽으로 쏠린다 */
+		/*margin-left: -150px;*/        /* 로고 가운데로 옮기는 방법1 -> 로고 바뀔때마다 px 수정해야하므로 비효율적 */
+		transform: translateX(-50%);    /* 로고 가운데로 옮기는 방법2 -> 반응형은 방법2가 적합 */
+		
+	}
+		#main_header > h1.logo > a{
+			width: 300px; height: 80px;
+			background: url(http://placehold.it/300x80);
+			text-indent: -6000px; overflow: hidden;
+		}
+
+	/* 검색form */
+	#search_wrap{
+		position: absolute;
+		right: 0; top: 0;
+		width: 250px; height: 35px;
+	}
+		
+		#search_wrap > form{}
+		#search_wrap fieldset{
+			width: 250px; 35px;
+			border-radius: 0 0 18px 18px;
+			background: #dfdfdf;
+		}
+			#search_wrap fieldset > input{
+				float: left;
+			}
+
+			input#search_txt{
+				width: 215px;
+				line-height: 35px;
+				box-sizing: border-box;
+				padding: 0 10px;
+			}
+			input#search_btn{
+				border-radius: 0 0 18px 0;
+			}
+
+	/* 상단메뉴 */
+	#top_nav{
+		position: absolute;
+		left: 0; top: 0;
+	}
+
+		#top_nav > ul{
+			width: 250px; height: 35px;
+			background: #dfdfdf;
+			border-radius: 0 0 18px 18px;
+		}
+			#top_nav > ul > li{
+				float: left;
+				width: 50%;
+				height: 35px;
+
+				position: relative;	/* 가운데라인 위치 잡기위한 기준 */
+			}
+			#top_nav > ul > li:first-child::after{ /* 상단메뉴(english/login) 가운데 라인 만들기*/
+				content: "";
+				display: block;
+				width: 2px; height: 20px;
+				background: #999;
+
+				position: absolute;		/* 가운데라인 위치 잡기위한 position */
+				left: 100%; top: 8px;		/* left: 100% -> english(li:first-child) 폭만큼 왼쪽에서 떨어뜨리기 */
+			}
+
+				#top_nav > ul > li > a{
+					line-height: 35px;
+					text-align: center;
+				}
+
+
+#main_nav_wrap{
+	width: 1400px;
+	margin: 0 auto;
+	border: 2px solid pink;
+	position: relative;   /*z-index용. 세부메뉴 가리지 말라고*/
+	z-index: 100;
+}
+
+	/*** 메인메뉴 ***/
+	ul#main_nav{
+		width: 100%;
+		/*overflow: hidden;*/ /* 안됨! rollover시 세부메뉴 나와야하기 때문 */
+		height: 50px;  /* overflow:hidden 대신 height속성 주는것으로 해결 */
+	}
+
+		ul#main_nav > li{
+			float: left;
+			width:  260px; height: 50px;
+			margin: 0 10px;
+
+			position: relative;    /* 메인메뉴rollover시 세부메뉴 보이도록하는 위치 기준 */
+		}
+
+			ul#main_nav > li > a{
+				width: 100%;
+				line-height: 50px;
+				background: #dfdfdf;
+				text-align: center;
+			}
+
+			ul#main_nav > li:hover > a{		/* 메인메뉴 rollover시 색상변경 */
+				background: #f90;
+			}
+			
+			
+			/*** 세부메뉴 ***/
+			ul#main_nav > li > ul.sub_nav{
+				/*display: none;*/			/* 메뉴 잡을때 무너질수 있어서 세부메뉴 가리고 메인메뉴 위치, 속성 잡는다.*/
+				position: absolute;			/* 메인메뉴rollover시 세부메뉴 보이도록 위치 잡기 */
+				left: 0; top: 50px;
+				background: rgba( 255, 255, 255, 0.5 );
+				width: 100%;
+			}
+
+			ul#main_nav > li > ul.sub_nav > li{
+				height: 0px;
+				overflow: hidden;
+				transition-duration: 0.3s;   /* 모션 부드럽게 */
+			}
+
+			ul#main_nav > li:hover > ul.sub_nav > li{		/* 메인메뉴 rollover시 세부메뉴 길이 늘여주기 (hover:마우스오버될때 true) */
+				height: 30px;
+			}
+
+				ul#main_nav > li > ul.sub_nav > li > a{
+					height: 30px;
+					text-align: center;
+					line-height: 30px;
+				}
+
+				ul#main_nav > li > ul.sub_nav > li:hover > a{   /* 세부메뉴 rollover시 색상변경 */
+					color: #f90;
+				}

@@ -1,0 +1,132 @@
+/* master.css */
+
+@import url(common.css);
+
+
+#join{
+	width: 630px;
+	margin: 50px;
+}
+
+#join > form{}
+
+	#join fieldset{
+		width: 100%;
+		box-sizing: border-box;  /*보더때문에 크기 커지는것 방지*/
+		border: 1px dashed #fe0000;
+		margin-bottom: 18px;
+		padding: 6px;
+	}
+
+	#join fieldset.required{}
+	#join fieldset.passSearch{ 
+		border-color: #ff8003; 
+	}
+	#join fieldset.mailing{ 
+		border-color: #808080;
+		margin-bottom: 13px;
+	}
+		#join fieldset > legend{
+			color: #fff;
+			font-weight: 500;
+			margin-left: 13px;
+			padding: 3px 6px; /*상하3px 우좌6px*/
+			border-right: 1px outset #fe0000;
+			border-bottom: 1px outset #fe0000;
+		}
+		#join fieldset.required > legend{
+			background-color: #fe0000;
+		}
+		#join fieldset.passSearch > legend{
+			background-color: #ff8003;
+			border-color: #ff8003;
+		}
+		#join fieldset.mailing > legend{
+			background-color: #808080;
+			border-color: #808080;
+		}
+
+			#join fieldset > p{  /* p기준 마진 위로8px */
+				margin-top: 8px;
+			}
+				#join fieldset > p > span.tel2{		/* select 위치 정확히 맞추기 위해 span태그 추가 후 inline-block요소로 변경 (p안에 영역 의미하는 div태그는 포함불가) - float적용 */
+					display: inline-block;
+				}
+					#join fieldset > p > span.tel2 > select{
+						float: left;
+					}
+
+			#join fieldset.required > p:nth-of-type(1),
+			#join fieldset.mailing > p:nth-of-type(1){  /* 첫번째 p 위는 붙이기 */
+				margin-top: 0;
+			}
+
+				.label{		/*inline요소이므로 width 적용이되지 않음*/
+					color: #55553b;
+					font-weight: 700;
+
+					display: inline-block;  /* inline-block요소로 변경 */
+					width: 110px;
+					margin-right: 8px;
+					text-align: right;
+				}
+				fieldset.mailing .label{
+					width: 380px;
+				}
+
+				.radio_label{
+					display: inline-block;
+				}
+					.radio_label > input{
+						float: left;
+						margin-top: 4px;
+						margin-right: 3px;
+					}
+
+
+					.req{  /*span 태그로 묶여있어(inline요소임) 폭과높이 없으므로 이미지 안나타남*/
+						display: inline-block;   /*inline-block요소로 바꾸어주기*/
+						width: 7px; height: 10px;  /*높이를 조금 높여줘서 위치 맞추기*/
+						background: url(../images/req.jpg) no-repeat left top;
+					}
+				#join input[type=text],
+				#join input[type=password],
+				#join select{
+					height: 21px;
+					border: 1px solid #7e9db9;
+				}
+
+			#join fieldset > .info{
+				background-color: #f4f0ed;
+				border: 1px solid #aca99a;
+				padding: 4px 10px; /*상하4px 우좌10px*/
+				margin-top: 6px;	/* info 기준 위로 마진 6px, 첫번째는 붙이기*/
+			}
+
+			#join fieldset.passSearch > .info{
+				margin-top: 0;
+			}
+
+				.warning{
+					font-weight: 500;
+					color: #fe0000;
+				}
+				.information{
+					font-weight: 500;
+					color: #017f01;
+				}
+
+/************** BUTTON **************/
+	.submit{
+		width: 100%;
+		text-align: center;
+	}
+		.submit > p{
+			display: inline-block;  /*float 쓰지않고 inline-block요소로 변경해서 text-align속성으로  위치 잡아도 괜찮다*/
+		}
+
+/*********** CLASS STYLE ************/
+.w_200{ width: 200px; }
+.w_128{ width: 128px; }
+.w_368{ width: 368px; }
+.w_68{ width: 68px; }
